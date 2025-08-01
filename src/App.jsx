@@ -8,10 +8,12 @@ import Gallery from "./components/library/Gallery";
 import CategoryPage from "./components/library/CategoryPage";
 import WhatsappForm from "./components/form/WhatsappForm";
 import PriceCalculator from "./components/PriceCalculator/PriceCalculator";
+import ScrollToTop from "./components/ScrollToTop";
 const App = () => {
   return (
     <Router>
       {/* Navigation bar stays visible on all pages */}
+      <ScrollToTop></ScrollToTop>
       <Navigation />
 
       <Routes>
