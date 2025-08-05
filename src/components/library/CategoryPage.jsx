@@ -80,13 +80,15 @@ export default function CategoryPage() {
               variants={imageItemVariants}
               whileHover={{ y: -2, scale: 1.01 }}
             >
-              <div className="aspect-square w-full">
+              <div className="flex items-center justify-center p-4 bg-white rounded-lg">
                 <img
                   src={image}
                   alt={`${category.title} ${index + 1}`}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                  className="max-w-[250px] max-h-[250px] object-cover rounded-md transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
                 />
               </div>
+
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500" />
               <div className="absolute bottom-0 left-0 right-0 p-6 opacity-0 group-hover:opacity-100 transition duration-500">
                 <h3 className="text-white font-semibold text-lg">
