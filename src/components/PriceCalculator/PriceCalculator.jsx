@@ -76,187 +76,201 @@ const PriceCalculator = () => {
     },
   };
   return (
-    <section className="py-16 bg-gray-50" id="priceCalculator">
-      {/* Heading */}
-      <motion.h1
-        className="text-4xl md:text-5xl font-semibold text-gray-900 text-center font-serif mb-10"
-        initial="hidden"
-        whileInView="visible"
-        variants={textVariants}
-        viewport={{ once: true }}
-      >
-        Calculate the price
-      </motion.h1>
-      <motion.div
-        className="max-w-4xl mx-auto p-4 bg-gray-100 text-gray-800"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
-      >
-        <Card className="border-none shadow-lg bg-white">
-          <CardHeader className="bg-blue-600 text-white rounded-t-lg">
-            <CardTitle className="text-2xl font-bold text-blue-500">
-              Price Calculator
-            </CardTitle>
-            <CardDescription className="text-gray-200">
-              Quickly estimate the cost of your interior design project with our
-              intuitive tool.
-            </CardDescription>
-          </CardHeader>
+    <section
+      className="py-12 bg-gradient-to-br from-gray-50 to-white"
+      id="priceCalculator"
+    >
+      <div className="container mx-auto px-6 lg:px-8 max-w-7xl">
+        {/* Heading */}
+        <motion.h1
+          className="text-4xl md:text-5xl font-bold text-gray-900 text-center tracking-tight mb-6"
+          initial="hidden"
+          whileInView="visible"
+          variants={textVariants}
+          viewport={{ once: true }}
+        >
+          Calculate the Price
+        </motion.h1>
+        <motion.p
+          className="text-lg text-gray-600 text-center mb-12 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2, duration: 0.6 }}
+        >
+          Get an instant estimate for your interior design project with our
+          comprehensive calculator
+        </motion.p>
+        <motion.div
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <Card className="border-none shadow-xl bg-white rounded-2xl">
+            <CardHeader className="bg-gradient-to-r from-gray-900 to-gray-800 text-white rounded-t-2xl">
+              <CardTitle className="text-2xl font-bold text-white">
+                Price Calculator
+              </CardTitle>
+              <CardDescription className="text-gray-300">
+                Quickly estimate the cost of your interior design project with
+                our intuitive tool.
+              </CardDescription>
+            </CardHeader>
 
-          <CardContent className="p-6 space-y-8">
-            <Tabs className="w-full">
-              <TabsList className="grid w-full grid-cols-3 mb-8">
-                <TabsTrigger
+            <CardContent className="p-6 space-y-8">
+              <Tabs className="w-full">
+                <TabsList className="grid w-full grid-cols-3 mb-8">
+                  <TabsTrigger
+                    value="property"
+                    activeTab={activeTab}
+                    onClick={() => setActiveTab("property")}
+                  >
+                    Property Details
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="finish"
+                    activeTab={activeTab}
+                    onClick={() => setActiveTab("finish")}
+                  >
+                    Finish Type
+                  </TabsTrigger>
+                  <TabsTrigger
+                    value="custom"
+                    activeTab={activeTab}
+                    onClick={() => setActiveTab("custom")}
+                  >
+                    Customizations
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent
                   value="property"
                   activeTab={activeTab}
-                  onClick={() => setActiveTab("property")}
+                  className="space-y-6"
                 >
-                  Property Details
-                </TabsTrigger>
-                <TabsTrigger
+                  <motion.h3
+                    className="text-lg font-medium mb-3"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    Select BHK Type
+                  </motion.h3>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+                    {Object.keys(basePrices).map((type) => (
+                      <Button
+                        key={type}
+                        variant={bhk === type ? "default" : "outline"}
+                        onClick={() => setBhk(type)}
+                      >
+                        <Home className="h-4 w-4" />
+                        <span>{type}</span>
+                      </Button>
+                    ))}
+                  </div>
+                  <motion.h3
+                    className="text-lg font-medium mb-3"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    Total Area: {area} sq. ft.
+                  </motion.h3>
+                  <Slider
+                    value={area}
+                    min={300}
+                    max={3000}
+                    step={50}
+                    onValueChange={setArea}
+                  />
+                </TabsContent>
+
+                <TabsContent
                   value="finish"
                   activeTab={activeTab}
-                  onClick={() => setActiveTab("finish")}
+                  className="space-y-6"
                 >
-                  Finish Type
-                </TabsTrigger>
-                <TabsTrigger
+                  <motion.h3
+                    className="text-lg font-medium mb-3"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    Select Finish Type
+                  </motion.h3>
+                  <div className="grid grid-cols-3 gap-3">
+                    {Object.keys(finishMultiplier).map((type) => (
+                      <Button
+                        key={type}
+                        variant={finish === type ? "default" : "outline"}
+                        onClick={() => setFinish(type)}
+                      >
+                        {type}
+                      </Button>
+                    ))}
+                  </div>
+                </TabsContent>
+
+                <TabsContent
                   value="custom"
                   activeTab={activeTab}
-                  onClick={() => setActiveTab("custom")}
+                  className="space-y-6"
                 >
-                  Customizations
-                </TabsTrigger>
-              </TabsList>
+                  <motion.h3
+                    className="text-lg font-medium mb-3"
+                    initial={{ y: -20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.6 }}
+                  >
+                    Select Customizations
+                  </motion.h3>
+                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
+                    {customizationOptions.map((option) => (
+                      <Button
+                        key={option.name}
+                        variant={
+                          customizations.includes(option.name)
+                            ? "default"
+                            : "outline"
+                        }
+                        onClick={() => toggleCustomization(option.name)}
+                      >
+                        {option.icon} {option.name}
+                      </Button>
+                    ))}
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </CardContent>
 
-              <TabsContent
-                value="property"
-                activeTab={activeTab}
-                className="space-y-6"
+            <CardFooter className="flex flex-col p-6 pt-0 gap-4">
+              <Button
+                onClick={calculateCost}
+                className="w-full h-12 text-lg font-medium bg-gradient-to-r from-gray-900 to-gray-800 text-white hover:from-gray-800 hover:to-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+                disabled={isCalculating}
               >
-                <motion.h3
-                  className="text-lg font-medium mb-3"
-                  initial={{ y: -20, opacity: 0 }}
+                {isCalculating ? "Calculating..." : "Calculate Estimate"}
+              </Button>
+
+              {estimatedCost && (
+                <motion.div
+                  className="w-full mt-4 p-8 bg-gradient-to-r from-gray-50 to-white rounded-2xl border-2 border-gray-200 shadow-lg"
+                  initial={{ y: 20, opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 0.6 }}
                 >
-                  Select BHK Type
-                </motion.h3>
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
-                  {Object.keys(basePrices).map((type) => (
-                    <Button
-                      key={type}
-                      variant={bhk === type ? "default" : "outline"}
-                      onClick={() => setBhk(type)}
-                    >
-                      <Home className="h-4 w-4" />
-                      <span>{type}</span>
-                    </Button>
-                  ))}
-                </div>
-                <motion.h3
-                  className="text-lg font-medium mb-3"
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  Total Area: {area} sq. ft.
-                </motion.h3>
-                <Slider
-                  value={area}
-                  min={300}
-                  max={3000}
-                  step={50}
-                  onValueChange={setArea}
-                />
-              </TabsContent>
-
-              <TabsContent
-                value="finish"
-                activeTab={activeTab}
-                className="space-y-6"
-              >
-                <motion.h3
-                  className="text-lg font-medium mb-3"
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  Select Finish Type
-                </motion.h3>
-                <div className="grid grid-cols-3 gap-3">
-                  {Object.keys(finishMultiplier).map((type) => (
-                    <Button
-                      key={type}
-                      variant={finish === type ? "default" : "outline"}
-                      onClick={() => setFinish(type)}
-                    >
-                      {type}
-                    </Button>
-                  ))}
-                </div>
-              </TabsContent>
-
-              <TabsContent
-                value="custom"
-                activeTab={activeTab}
-                className="space-y-6"
-              >
-                <motion.h3
-                  className="text-lg font-medium mb-3"
-                  initial={{ y: -20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1 }}
-                  transition={{ duration: 0.6 }}
-                >
-                  Select Customizations
-                </motion.h3>
-                <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-                  {customizationOptions.map((option) => (
-                    <Button
-                      key={option.name}
-                      variant={
-                        customizations.includes(option.name)
-                          ? "default"
-                          : "outline"
-                      }
-                      onClick={() => toggleCustomization(option.name)}
-                    >
-                      {option.icon} {option.name}
-                    </Button>
-                  ))}
-                </div>
-              </TabsContent>
-            </Tabs>
-          </CardContent>
-
-          <CardFooter className="flex flex-col p-6 pt-0 gap-4">
-            <Button
-              onClick={calculateCost}
-              className="w-full h-12 text-lg font-medium bg-blue-300 text-white"
-              disabled={isCalculating}
-            >
-              {isCalculating ? "Calculating..." : "Calculate Estimate"}
-            </Button>
-
-            {estimatedCost && (
-              <motion.div
-                className="w-full mt-4 p-6 bg-gray-200 rounded-lg border border-gray-300"
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6 }}
-              >
-                <h3 className="text-lg font-medium text-center text-gray-700 mb-2">
-                  Your Estimated Cost
-                </h3>
-                <p className="text-3xl font-bold text-center text-gray-900">
-                  ₹{estimatedCost.toLocaleString()}
-                </p>
-              </motion.div>
-            )}
-          </CardFooter>
-        </Card>
-      </motion.div>
+                  <h3 className="text-xl font-bold text-center text-gray-800 mb-3">
+                    Your Estimated Cost
+                  </h3>
+                  <p className="text-4xl font-bold text-center text-gray-900">
+                    ₹{estimatedCost.toLocaleString()}
+                  </p>
+                </motion.div>
+              )}
+            </CardFooter>
+          </Card>
+        </motion.div>
+      </div>
     </section>
   );
 };

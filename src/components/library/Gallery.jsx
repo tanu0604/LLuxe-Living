@@ -103,36 +103,92 @@ export const categories = [
     title: "Living Room Designs",
     tags: ["Modern", "Minimalist", "Traditional", "Boho"],
     images: [
-      livingRoom1,livingRoom2,livingRoom3,livingRoom4,livingRoom5,livingRoom6,livingRoom7,livingRoom8,livingRoom9,livingRoom10,livingRoom11,livingRoom12,
-    ], 
+      livingRoom1,
+      livingRoom2,
+      livingRoom3,
+      livingRoom4,
+      livingRoom5,
+      livingRoom6,
+      livingRoom7,
+      livingRoom8,
+      livingRoom9,
+      livingRoom10,
+      livingRoom11,
+      livingRoom12,
+    ],
   },
   {
     id: 2,
     title: "Bedroom Interiors",
     tags: ["Cozy setups", "Luxury bedrooms", "Kids' rooms"],
     images: [
-      bedroom1, bedroom2, bedroom3, bedroom4, bedroom5, bedroom6, bedroom7, bedroom8, bedroom9, bedroom10, bedroom11, bedroom12,
+      bedroom1,
+      bedroom2,
+      bedroom3,
+      bedroom4,
+      bedroom5,
+      bedroom6,
+      bedroom7,
+      bedroom8,
+      bedroom9,
+      bedroom10,
+      bedroom11,
+      bedroom12,
     ],
   },
   {
     id: 3,
     title: "Kitchen Spaces",
     tags: ["Modular kitchens", "Open kitchen concepts"],
-    images: [kitchen1, kitchen2, kitchen3, kitchen4, kitchen5,kitchen6,kitchen7,kitchen8,kitchen9,kitchen10,kitchen11,kitchen12], 
+    images: [
+      kitchen1,
+      kitchen2,
+      kitchen3,
+      kitchen4,
+      kitchen5,
+      kitchen6,
+      kitchen7,
+      kitchen8,
+      kitchen9,
+      kitchen10,
+      kitchen11,
+      kitchen12,
+    ],
   },
   {
     id: 4,
     title: "Dining Spaces",
     tags: ["Modular kitchens", "Open kitchen concepts"],
-    images: [dining1, dining2, dining3, dining4, dining5,dining6, dining7, dining8, dining9], 
+    images: [
+      dining1,
+      dining2,
+      dining3,
+      dining4,
+      dining5,
+      dining6,
+      dining7,
+      dining8,
+      dining9,
+    ],
   },
   {
     id: 5,
     title: "Puja Room",
     tags: ["Traditional Decor", "Spiritual Vibes"],
     images: [
-      puja1, puja2,puja3,puja4, puja5,puja6, puja7, puja8, puja9,puja10,puja11,puja12,
-    ], 
+      puja1,
+      puja2,
+      puja3,
+      puja4,
+      puja5,
+      puja6,
+      puja7,
+      puja8,
+      puja9,
+      puja10,
+      puja11,
+      puja12,
+    ],
   },
   {
     id: 6,
@@ -144,13 +200,23 @@ export const categories = [
     id: 7,
     title: "Bathroom & Spa Interiors",
     tags: ["Luxury baths", "Wellness spaces"],
-    images: [bathroom1, bathroom2, bathroom3, bathroom4, bathroom5,bathroom6], // Updated to array of images
+    images: [bathroom1, bathroom2, bathroom3, bathroom4, bathroom5, bathroom6], // Updated to array of images
   },
   {
     id: 8,
     title: "Custom Furniture & Decor",
     tags: ["Unique furniture pieces", "Handmade designs"],
-    images: [furniture1, furniture2, furniture3, furniture4,furniture5,furniture6,furniture7,furniture8,furniture9], // Updated to array of images
+    images: [
+      furniture1,
+      furniture2,
+      furniture3,
+      furniture4,
+      furniture5,
+      furniture6,
+      furniture7,
+      furniture8,
+      furniture9,
+    ], // Updated to array of images
   },
 ];
 
@@ -193,12 +259,12 @@ export default function Gallery() {
 
   return (
     <section
-      className="relative w-full min-h-screen lg:min-h-[600px] overflow-hidden p-20"
+      className="relative w-full min-h-screen bg-gradient-to-br from-gray-50 to-white py-16 px-6"
       id="interior-library"
     >
-      <div className="container mx-auto px-4 mb-12">
+      <div className="container mx-auto mb-12">
         <motion.h1
-          className="text-4xl md:text-5xl font-semibold text-gray-900 text-center font-serif mb-10"
+          className="text-4xl md:text-5xl font-bold text-gray-900 text-center tracking-tight mb-6"
           initial="hidden"
           whileInView="visible"
           variants={textVariants}
@@ -210,10 +276,11 @@ export default function Gallery() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="text-gray-400 text-center max-w-2xl mx-auto"
+          className="text-gray-600 text-center max-w-3xl mx-auto text-lg leading-relaxed"
         >
-          Explore a variety of interior designs categorized for easy browsing.
-          Click "See More" to view related images.
+          Discover our curated collection of premium interior designs, each
+          crafted with precision and elegance. Explore different categories to
+          find inspiration for your dream space.
         </motion.p>
       </div>
 
@@ -232,43 +299,45 @@ export default function Gallery() {
           {categories.map((category, index) => (
             <motion.div
               key={`${category.id}-${index}`}
-              className="relative group w-[300px] flex-shrink-0"
-              whileHover={{ scale: 1.02 }}
-              transition={{ duration: 0.2 }}
+              className="relative group w-[320px] flex-shrink-0"
+              whileHover={{ scale: 1.02, y: -8 }}
+              transition={{ duration: 0.3 }}
             >
-              <div className="relative h-[400px] rounded-xl overflow-hidden">
-                <div className="w-full h-full flex overflow-x-auto gap-2 scroll-smooth scrollbar-hide">
-                  {category.images
-                    .slice(0, visibleImages)
-                    .map((image, imgIdx) => (
+              <div className="relative h-[420px] rounded-2xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
+                <div className="w-full h-full flex overflow-x-auto gap-3 scroll-smooth scrollbar-hide p-3">
+                  {category.images.slice(0, 3).map((image, imgIdx) => (
+                    <div
+                      key={imgIdx}
+                      className="aspect-square w-full flex-shrink-0 rounded-xl overflow-hidden"
+                    >
                       <img
-                        key={imgIdx}
                         src={image}
                         alt={`${category.title} ${imgIdx + 1}`}
-                        className="object-cover w-full h-full flex-shrink-0 rounded-xl"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                    ))}
+                    </div>
+                  ))}
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 p-6 opacity-100 translate-y-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:opacity-100 group-focus-within:translate-y-0 group-active:opacity-100 group-active:translate-y-0">
-                  <h3 className="text-xl font-bold text-white mb-2">
+                  <h3 className="text-xl font-bold text-white mb-3">
                     {category.title}
                   </h3>
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {category.tags.map((tag, tagIndex) => (
+                    {category.tags.slice(0, 2).map((tag, tagIndex) => (
                       <span
                         key={`${tag}-${tagIndex}`}
-                        className="text-xs px-2 py-1 rounded-full bg-white/10 text-white"
+                        className="text-xs px-3 py-1 rounded-full bg-white/20 text-white backdrop-blur-sm"
                       >
                         {tag}
                       </span>
                     ))}
                   </div>
                   <button
-                    onClick={() => handleOnClick(category.id)} // Pass the category's id here
-                    className="mt-4 bg-white text-black px-4 py-2 rounded-lg hover:bg-gray-200"
+                    onClick={() => handleOnClick(category.id)}
+                    className="bg-white text-gray-900 px-6 py-3 rounded-xl hover:bg-gray-100 transition-all duration-300 font-medium shadow-lg hover:shadow-xl"
                   >
-                    See More
+                    Explore Gallery
                   </button>
                 </div>
               </div>
@@ -276,18 +345,6 @@ export default function Gallery() {
           ))}
         </motion.div>
       </div>
-
-      {/* "See More" Button Logic */}
-      {categories.map((category) => (
-        <div key={category.id} className="mt-6">
-          <button
-            onClick={() => handleSeeMore(category.id)}
-            className="bg-primary text-white px-4 py-2 rounded-lg"
-          >
-            See More
-          </button>
-        </div>
-      ))}
     </section>
   );
 }

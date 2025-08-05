@@ -5,6 +5,7 @@ import navLogo from "../../assets/logo.jpg";
 const navItems = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
+  { name: "Range of KWS", href: "/range" },
   { name: "Price Calculator", href: "/calculator" },
   { name: "Form", href: "/form" },
   { name: "Gallery", href: "/gallery" },
@@ -18,7 +19,11 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 flex justify-between items-center h-16">
         {/* Logo */}
         <div className="flex items-center space-x-4">
-          <img src={navLogo} alt="LLuxe Living" className="w-14 h-14 rounded-full" />
+          <img
+            src={navLogo}
+            alt="LLuxe Living"
+            className="w-14 h-14 rounded-full"
+          />
           <Link to="/" className="text-2xl font-bold text-white tracking-wide">
             LLuxe<span className="text-gray-300">Living</span>
           </Link>

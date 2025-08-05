@@ -35,7 +35,7 @@ export default function Home() {
         </div>
 
         {/* Hero Content */}
-        <div className="container relative h-full flex items-center justify-center text-center p-4 pt-24 lg:pt-32">
+        <div className="container relative h-full flex items-center justify-center text-center p-4 pt-20 lg:pt-28">
           <div className="max-w-3xl space-y-6">
             {/* Animated Heading */}
             <motion.h1
