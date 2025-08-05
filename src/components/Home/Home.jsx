@@ -27,7 +27,7 @@ export default function Home() {
         <div className="absolute inset-0">
           <img
             src={headingImg}
-            alt="Interior design background"
+            alt="LLuxe Living"
             className="w-full h-full object-cover brightness-[0.6] blur-[0.5px]"
           />
           {/* Gradient overlay for better text readability */}
@@ -96,3 +96,4 @@ export default function Home() {
     </>
   );
 }
+
