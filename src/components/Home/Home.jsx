@@ -44,8 +44,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              Welcome to{" "}
-              <span className="text-gray-200">LLuxe Living</span>
+              Welcome to <span className="text-gray-200">LLuxe Living</span>
             </motion.h1>
 
             {/* Subheading */}
