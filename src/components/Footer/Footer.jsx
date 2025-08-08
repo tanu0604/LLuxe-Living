@@ -99,7 +99,7 @@ export default function Footer() {
           {/* Social Links */}
           <div className="flex gap-4 mt-5">
             <a
-              href="https://facebook.com"
+              href="https://www.facebook.com/share/1YYeeXNMPE/"
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition"
@@ -107,7 +107,7 @@ export default function Footer() {
               <Facebook size={22} />
             </a>
             <a
-              href="https://instagram.com"
+              href="https://www.instagram.com/lluxe_living?igsh=MTRmdjJ2M25pa2J0Nw=="
               target="_blank"
               rel="noreferrer"
               className="hover:text-white transition"
@@ -125,3 +125,4 @@ export default function Footer() {
     </footer>
   );
 }
+
