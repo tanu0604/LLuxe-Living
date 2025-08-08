@@ -90,7 +90,7 @@ const WhatsappForm = () => {
           variants={textVariants}
           viewport={{ once: true }}
         >
-          Project Inquiry Form
+          Project Enquiry Form
         </motion.h1>
 
         <motion.p
@@ -248,7 +248,7 @@ const WhatsappForm = () => {
                 disabled={isSubmitting}
                 className="px-8 py-4 text-white bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl hover:from-gray-800 hover:to-gray-700 transition-all duration-300 shadow-lg hover:shadow-xl font-semibold text-lg"
               >
-                {isSubmitting ? "Sending..." : "Submit Inquiry"}
+                {isSubmitting ? "Sending..." : "Submit Enquiry"}
               </button>
             </div>
           </form>
@@ -259,3 +259,4 @@ const WhatsappForm = () => {
 };
 
 export default WhatsappForm;
+
