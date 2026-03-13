@@ -80,7 +80,7 @@ export const galleryData = [
       { src: bedroom3, title: "Elegant Bed Setup", style: "Luxury Contemporary" },
       { src: bedroom4, title: "Ambient Lighting", style: "Premium Cozy" },
       { src: bedroom5, title: "Minimal Storage", style: "Modern Minimal" },
-      { src: bedroom6, title: "Statement Headboard", style: "Luxury Contemporary" },
+      { src: bedroom6, title: "Mirror", style: "Luxury Contemporary" },
       { src: bedroom7, title: "Soft Furnishings", style: "Cozy Minimal" },
     ],
   },
@@ -154,3 +154,4 @@ export const galleryData = [
 ];
 
 export default galleryData;
+
