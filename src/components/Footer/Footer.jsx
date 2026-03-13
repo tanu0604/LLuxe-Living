@@ -26,7 +26,7 @@ export default function Footer() {
     { icon: Phone, label: "+91 84209 06352", href: "tel:+918420906352" },
     { icon: Phone, label: "+91 95582 14868", href: "tel:+919558214868" },
     { icon: Phone, label: "+91 74391 86072", href: "tel:+917439186072" },
-    { icon: Mail, label: "saleslluxeliving@gmail.com", href: "mailto:saleslluxeliving@gmail.com" },
+    { icon: Mail, label: "saleslluxeliving@gmail.com", href: "mailto:connect@lluxeliving.co.in" },
   ];
 
   const socialLinks = [
@@ -314,4 +314,5 @@ export default function Footer() {
       />
     </footer>
   );
+
 }
