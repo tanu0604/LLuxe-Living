@@ -27,7 +27,6 @@ export default function About() {
     { value: "500+", label: "Completed Projects" },
     { value: "15+", label: "Years of Excellence" },
     { value: "98%", label: "Client Satisfaction" },
-    { value: "50+", label: "Design Awards" }
   ];
 
   const features = [
@@ -353,4 +352,5 @@ export default function About() {
       <GalleryofImages />
     </>
   );
+
 }
